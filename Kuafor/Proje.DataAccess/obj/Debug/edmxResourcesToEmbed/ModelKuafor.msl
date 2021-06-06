@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ErkekKuaforDBModelStoreContainer" CdmEntityContainer="ErkekKuaforDBEntities">
+    <EntitySetMapping Name="TBL_anasayfaVERILER">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_anasayfaVERILER">
+        <MappingFragment StoreEntitySet="TBL_anasayfaVERILER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DETAY" ColumnName="DETAY" />
+          <ScalarProperty Name="DETAY2" ColumnName="DETAY2" />
+          <ScalarProperty Name="DETAY3" ColumnName="DETAY3" />
+          <ScalarProperty Name="DETAY4" ColumnName="DETAY4" />
+          <ScalarProperty Name="DETAY5" ColumnName="DETAY5" />
+          <ScalarProperty Name="DETAY6" ColumnName="DETAY6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_calisanlarBILGI">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_calisanlarBILGI">
+        <MappingFragment StoreEntitySet="TBL_calisanlarBILGI">
+          <ScalarProperty Name="PersonelId" ColumnName="PersonelId" />
+          <ScalarProperty Name="PersonelAdSoyad" ColumnName="PersonelAdSoyad" />
+          <ScalarProperty Name="PersonelTelNo" ColumnName="PersonelTelNo" />
+          <ScalarProperty Name="PersonelMail" ColumnName="PersonelMail" />
+          <ScalarProperty Name="MusteriSayisiToplam" ColumnName="MusteriSayisiToplam" />
+          <ScalarProperty Name="OrtalamaPuan" ColumnName="OrtalamaPuan" />
+          <ScalarProperty Name="PersonelDurum" ColumnName="PersonelDurum" />
+          <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_galeriVERILER">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_galeriVERILER">
+        <MappingFragment StoreEntitySet="TBL_galeriVERILER">
+          <ScalarProperty Name="FotoAciklamaId" ColumnName="FotoAciklamaId" />
+          <ScalarProperty Name="FotoBaslik" ColumnName="FotoBaslik" />
+          <ScalarProperty Name="FotoDetay" ColumnName="FotoDetay" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_hakkimizdaVERILER">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_hakkimizdaVERILER">
+        <MappingFragment StoreEntitySet="TBL_hakkimizdaVERILER">
+          <ScalarProperty Name="VeriId" ColumnName="VeriId" />
+          <ScalarProperty Name="DETAY1" ColumnName="DETAY1" />
+          <ScalarProperty Name="DETAY2" ColumnName="DETAY2" />
+          <ScalarProperty Name="DETAY3" ColumnName="DETAY3" />
+          <ScalarProperty Name="DETAY4" ColumnName="DETAY4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_iletisimMESAJ">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_iletisimMESAJ">
+        <MappingFragment StoreEntitySet="TBL_iletisimMESAJ">
+          <ScalarProperty Name="zaman" ColumnName="zaman" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="isim" ColumnName="isim" />
+          <ScalarProperty Name="telNO" ColumnName="telNO" />
+          <ScalarProperty Name="eMail" ColumnName="eMail" />
+          <ScalarProperty Name="konu" ColumnName="konu" />
+          <ScalarProperty Name="mesaj" ColumnName="mesaj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Kategori">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_Kategori">
+        <MappingFragment StoreEntitySet="TBL_Kategori">
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+          <ScalarProperty Name="KategoriFiyat" ColumnName="KategoriFiyat" />
+          <ScalarProperty Name="KategoriDurum" ColumnName="KategoriDurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_Randevu">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_Randevu">
+        <MappingFragment StoreEntitySet="TBL_Randevu">
+          <ScalarProperty Name="RandevuId" ColumnName="RandevuId" />
+          <ScalarProperty Name="MusteriAd" ColumnName="MusteriAd" />
+          <ScalarProperty Name="MusteriSoyad" ColumnName="MusteriSoyad" />
+          <ScalarProperty Name="MusteriTelNo" ColumnName="MusteriTelNo" />
+          <ScalarProperty Name="MusteriMail" ColumnName="MusteriMail" />
+          <ScalarProperty Name="PersonelIdFK" ColumnName="PersonelIdFK" />
+          <ScalarProperty Name="KategoriIdFK" ColumnName="KategoriIdFK" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="SaatIdFK" ColumnName="SaatIdFK" />
+          <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_saatlerKONTROL">
+      <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_saatlerKONTROL">
+        <MappingFragment StoreEntitySet="TBL_saatlerKONTROL">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="saatler" ColumnName="saatler" />
+          <ScalarProperty Name="SaatDurum" ColumnName="SaatDurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

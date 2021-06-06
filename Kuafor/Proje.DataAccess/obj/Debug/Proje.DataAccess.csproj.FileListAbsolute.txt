@@ -1,0 +1,10 @@
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\bin\Debug\Proje.DataAccess.dll
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\bin\Debug\Proje.DataAccess.pdb
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\obj\Debug\Proje.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\obj\Debug\Proje.DataAccess.dll
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\obj\Debug\Proje.DataAccess.pdb
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\bin\Debug\Proje.DataAccess.dll.config
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\obj\Debug\Proje.DataAccess.csprojAssemblyReference.cache
+C:\Users\oguzh\source\repos\Kuafor\Proje.DataAccess\obj\Debug\Proje.DataAccess.csproj.CopyComplete

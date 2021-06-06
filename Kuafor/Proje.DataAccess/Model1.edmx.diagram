@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87b26438cadc4538b9cf72c18cd41126" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_anasayfaVERILER" Width="1.5" PointX="11.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_calisanlarBILGI" Width="1.5" PointX="6.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_galeriVERILER" Width="1.5" PointX="13.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_hakkimizdaVERILER" Width="1.5" PointX="11.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_iletisimMESAJ" Width="1.5" PointX="13.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_Kategori" Width="1.5" PointX="9" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_Randevu" Width="1.5" PointX="9" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErkekKuaforDBModel.TBL_saatlerKONTROL" Width="1.5" PointX="6.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="ErkekKuaforDBModel.FK_TBL_Randevu_TBL_calisanlarBILGI" ManuallyRouted="false" />
+        <AssociationConnector Association="ErkekKuaforDBModel.FK_TBL_Randevu_TBL_Kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="ErkekKuaforDBModel.FK_TBL_Randevu_TBL_saatlerKONTROL" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

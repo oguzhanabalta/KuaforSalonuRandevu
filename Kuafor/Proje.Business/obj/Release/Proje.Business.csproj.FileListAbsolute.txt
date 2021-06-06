@@ -1,0 +1,13 @@
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\Proje.Business.dll.config
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\Proje.Business.dll
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\Proje.Business.pdb
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\EntityFramework.dll
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\Proje.DataAccess.dll
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\Proje.DataAccess.pdb
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\Proje.DataAccess.dll.config
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\bin\Release\EntityFramework.xml
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\obj\Release\Proje.Business.csprojAssemblyReference.cache
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\obj\Release\Proje.Business.csproj.CoreCompileInputs.cache
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\obj\Release\Proje.Business.csproj.CopyComplete
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\obj\Release\Proje.Business.dll
+C:\Users\oguzh\source\repos\Kuafor\Proje.Business\obj\Release\Proje.Business.pdb

@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ErkekKuaforDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_anasayfaVERILER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DETAY" Type="varchar(max)" />
+          <Property Name="DETAY2" Type="varchar(max)" />
+          <Property Name="DETAY3" Type="varchar(max)" />
+          <Property Name="DETAY4" Type="varchar(max)" />
+          <Property Name="DETAY5" Type="varchar(max)" />
+          <Property Name="DETAY6" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TBL_calisanlarBILGI">
+          <Key>
+            <PropertyRef Name="PersonelId" />
+          </Key>
+          <Property Name="PersonelId" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelAdSoyad" Type="varchar" MaxLength="150" />
+          <Property Name="PersonelTelNo" Type="varchar" MaxLength="11" />
+          <Property Name="PersonelMail" Type="varchar" MaxLength="300" />
+          <Property Name="MusteriSayisiToplam" Type="int" />
+          <Property Name="OrtalamaPuan" Type="float" />
+          <Property Name="PersonelDurum" Type="bit" />
+          <Property Name="Silindi" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_galeriVERILER">
+          <Key>
+            <PropertyRef Name="FotoAciklamaId" />
+          </Key>
+          <Property Name="FotoAciklamaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FotoBaslik" Type="nvarchar" MaxLength="60" />
+          <Property Name="FotoDetay" Type="nvarchar" MaxLength="200" />
+          <Property Name="foto" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="TBL_hakkimizdaVERILER">
+          <Key>
+            <PropertyRef Name="VeriId" />
+          </Key>
+          <Property Name="VeriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DETAY1" Type="varchar" MaxLength="1000" />
+          <Property Name="DETAY2" Type="varchar" MaxLength="1000" />
+          <Property Name="DETAY3" Type="varchar" MaxLength="1000" />
+          <Property Name="DETAY4" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="TBL_iletisimMESAJ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isim" Type="varchar" MaxLength="50" />
+          <Property Name="telNO" Type="nchar" MaxLength="10" />
+          <Property Name="eMail" Type="varchar(max)" />
+          <Property Name="konu" Type="varchar" MaxLength="50" />
+          <Property Name="mesaj" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TBL_Kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="tinyint" Nullable="false" />
+          <Property Name="KategoriAd" Type="varchar" MaxLength="100" />
+          <Property Name="KategoriFiyat" Type="smallint" />
+          <Property Name="KategoriDurum" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_Randevu">
+          <Key>
+            <PropertyRef Name="RandevuId" />
+          </Key>
+          <Property Name="RandevuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MusteriAd" Type="varchar" MaxLength="50" />
+          <Property Name="MusteriSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="MusteriTelNo" Type="varchar" MaxLength="11" />
+          <Property Name="MusteriMail" Type="varchar" MaxLength="100" />
+          <Property Name="PersonelIdFK" Type="tinyint" />
+          <Property Name="KategoriIdFK" Type="tinyint" />
+          <Property Name="Tarih" Type="varchar" MaxLength="50" />
+          <Property Name="SaatIdFK" Type="tinyint" />
+          <Property Name="Ucret" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TBL_saatlerKONTROL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" Nullable="false" />
+          <Property Name="saatler" Type="varchar" MaxLength="50" />
+          <Property Name="SaatDurum" Type="bit" />
+        </EntityType>
+        <Association Name="FK_TBL_Randevu_TBL_calisanlarBILGI">
+          <End Role="TBL_calisanlarBILGI" Type="Self.TBL_calisanlarBILGI" Multiplicity="0..1" />
+          <End Role="TBL_Randevu" Type="Self.TBL_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_calisanlarBILGI">
+              <PropertyRef Name="PersonelId" />
+            </Principal>
+            <Dependent Role="TBL_Randevu">
+              <PropertyRef Name="PersonelIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Randevu_TBL_Kategori">
+          <End Role="TBL_Kategori" Type="Self.TBL_Kategori" Multiplicity="0..1" />
+          <End Role="TBL_Randevu" Type="Self.TBL_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="TBL_Randevu">
+              <PropertyRef Name="KategoriIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Randevu_TBL_saatlerKONTROL">
+          <End Role="TBL_saatlerKONTROL" Type="Self.TBL_saatlerKONTROL" Multiplicity="0..1" />
+          <End Role="TBL_Randevu" Type="Self.TBL_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_saatlerKONTROL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TBL_Randevu">
+              <PropertyRef Name="SaatIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ErkekKuaforDBModelStoreContainer">
+          <EntitySet Name="TBL_anasayfaVERILER" EntityType="Self.TBL_anasayfaVERILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_calisanlarBILGI" EntityType="Self.TBL_calisanlarBILGI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_galeriVERILER" EntityType="Self.TBL_galeriVERILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_hakkimizdaVERILER" EntityType="Self.TBL_hakkimizdaVERILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_iletisimMESAJ" EntityType="Self.TBL_iletisimMESAJ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Kategori" EntityType="Self.TBL_Kategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Randevu" EntityType="Self.TBL_Randevu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_saatlerKONTROL" EntityType="Self.TBL_saatlerKONTROL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBL_Randevu_TBL_calisanlarBILGI" Association="Self.FK_TBL_Randevu_TBL_calisanlarBILGI">
+            <End Role="TBL_calisanlarBILGI" EntitySet="TBL_calisanlarBILGI" />
+            <End Role="TBL_Randevu" EntitySet="TBL_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Randevu_TBL_Kategori" Association="Self.FK_TBL_Randevu_TBL_Kategori">
+            <End Role="TBL_Kategori" EntitySet="TBL_Kategori" />
+            <End Role="TBL_Randevu" EntitySet="TBL_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Randevu_TBL_saatlerKONTROL" Association="Self.FK_TBL_Randevu_TBL_saatlerKONTROL">
+            <End Role="TBL_saatlerKONTROL" EntitySet="TBL_saatlerKONTROL" />
+            <End Role="TBL_Randevu" EntitySet="TBL_Randevu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ErkekKuaforDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_anasayfaVERILER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DETAY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_calisanlarBILGI">
+          <Key>
+            <PropertyRef Name="PersonelId" />
+          </Key>
+          <Property Name="PersonelId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelAdSoyad" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelTelNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelMail" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="MusteriSayisiToplam" Type="Int32" />
+          <Property Name="OrtalamaPuan" Type="Double" />
+          <Property Name="PersonelDurum" Type="Boolean" />
+          <Property Name="Silindi" Type="Boolean" />
+          <NavigationProperty Name="TBL_Randevu" Relationship="Self.FK_TBL_Randevu_TBL_calisanlarBILGI" FromRole="TBL_calisanlarBILGI" ToRole="TBL_Randevu" />
+        </EntityType>
+        <EntityType Name="TBL_galeriVERILER">
+          <Key>
+            <PropertyRef Name="FotoAciklamaId" />
+          </Key>
+          <Property Name="FotoAciklamaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FotoBaslik" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="FotoDetay" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="foto" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_hakkimizdaVERILER">
+          <Key>
+            <PropertyRef Name="VeriId" />
+          </Key>
+          <Property Name="VeriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DETAY1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY3" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DETAY4" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_iletisimMESAJ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telNO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="eMail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_Kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="Byte" Nullable="false" />
+          <Property Name="KategoriAd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KategoriFiyat" Type="Int16" />
+          <Property Name="KategoriDurum" Type="Boolean" />
+          <NavigationProperty Name="TBL_Randevu" Relationship="Self.FK_TBL_Randevu_TBL_Kategori" FromRole="TBL_Kategori" ToRole="TBL_Randevu" />
+        </EntityType>
+        <EntityType Name="TBL_Randevu">
+          <Key>
+            <PropertyRef Name="RandevuId" />
+          </Key>
+          <Property Name="RandevuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MusteriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MusteriSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MusteriTelNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="MusteriMail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelIdFK" Type="Byte" />
+          <Property Name="KategoriIdFK" Type="Byte" />
+          <Property Name="Tarih" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaatIdFK" Type="Byte" />
+          <Property Name="Ucret" Type="Int16" />
+          <NavigationProperty Name="TBL_calisanlarBILGI" Relationship="Self.FK_TBL_Randevu_TBL_calisanlarBILGI" FromRole="TBL_Randevu" ToRole="TBL_calisanlarBILGI" />
+          <NavigationProperty Name="TBL_Kategori" Relationship="Self.FK_TBL_Randevu_TBL_Kategori" FromRole="TBL_Randevu" ToRole="TBL_Kategori" />
+          <NavigationProperty Name="TBL_saatlerKONTROL" Relationship="Self.FK_TBL_Randevu_TBL_saatlerKONTROL" FromRole="TBL_Randevu" ToRole="TBL_saatlerKONTROL" />
+        </EntityType>
+        <EntityType Name="TBL_saatlerKONTROL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" />
+          <Property Name="saatler" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SaatDurum" Type="Boolean" />
+          <NavigationProperty Name="TBL_Randevu" Relationship="Self.FK_TBL_Randevu_TBL_saatlerKONTROL" FromRole="TBL_saatlerKONTROL" ToRole="TBL_Randevu" />
+        </EntityType>
+        <Association Name="FK_TBL_Randevu_TBL_calisanlarBILGI">
+          <End Role="TBL_calisanlarBILGI" Type="Self.TBL_calisanlarBILGI" Multiplicity="0..1" />
+          <End Role="TBL_Randevu" Type="Self.TBL_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_calisanlarBILGI">
+              <PropertyRef Name="PersonelId" />
+            </Principal>
+            <Dependent Role="TBL_Randevu">
+              <PropertyRef Name="PersonelIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Randevu_TBL_Kategori">
+          <End Role="TBL_Kategori" Type="Self.TBL_Kategori" Multiplicity="0..1" />
+          <End Role="TBL_Randevu" Type="Self.TBL_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="TBL_Randevu">
+              <PropertyRef Name="KategoriIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Randevu_TBL_saatlerKONTROL">
+          <End Role="TBL_saatlerKONTROL" Type="Self.TBL_saatlerKONTROL" Multiplicity="0..1" />
+          <End Role="TBL_Randevu" Type="Self.TBL_Randevu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_saatlerKONTROL">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TBL_Randevu">
+              <PropertyRef Name="SaatIdFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ErkekKuaforDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_anasayfaVERILER" EntityType="Self.TBL_anasayfaVERILER" />
+          <EntitySet Name="TBL_calisanlarBILGI" EntityType="Self.TBL_calisanlarBILGI" />
+          <EntitySet Name="TBL_galeriVERILER" EntityType="Self.TBL_galeriVERILER" />
+          <EntitySet Name="TBL_hakkimizdaVERILER" EntityType="Self.TBL_hakkimizdaVERILER" />
+          <EntitySet Name="TBL_iletisimMESAJ" EntityType="Self.TBL_iletisimMESAJ" />
+          <EntitySet Name="TBL_Kategori" EntityType="Self.TBL_Kategori" />
+          <EntitySet Name="TBL_Randevu" EntityType="Self.TBL_Randevu" />
+          <EntitySet Name="TBL_saatlerKONTROL" EntityType="Self.TBL_saatlerKONTROL" />
+          <AssociationSet Name="FK_TBL_Randevu_TBL_calisanlarBILGI" Association="Self.FK_TBL_Randevu_TBL_calisanlarBILGI">
+            <End Role="TBL_calisanlarBILGI" EntitySet="TBL_calisanlarBILGI" />
+            <End Role="TBL_Randevu" EntitySet="TBL_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Randevu_TBL_Kategori" Association="Self.FK_TBL_Randevu_TBL_Kategori">
+            <End Role="TBL_Kategori" EntitySet="TBL_Kategori" />
+            <End Role="TBL_Randevu" EntitySet="TBL_Randevu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Randevu_TBL_saatlerKONTROL" Association="Self.FK_TBL_Randevu_TBL_saatlerKONTROL">
+            <End Role="TBL_saatlerKONTROL" EntitySet="TBL_saatlerKONTROL" />
+            <End Role="TBL_Randevu" EntitySet="TBL_Randevu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ErkekKuaforDBModelStoreContainer" CdmEntityContainer="ErkekKuaforDBEntities">
+          <EntitySetMapping Name="TBL_anasayfaVERILER">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_anasayfaVERILER">
+              <MappingFragment StoreEntitySet="TBL_anasayfaVERILER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DETAY" ColumnName="DETAY" />
+                <ScalarProperty Name="DETAY2" ColumnName="DETAY2" />
+                <ScalarProperty Name="DETAY3" ColumnName="DETAY3" />
+                <ScalarProperty Name="DETAY4" ColumnName="DETAY4" />
+                <ScalarProperty Name="DETAY5" ColumnName="DETAY5" />
+                <ScalarProperty Name="DETAY6" ColumnName="DETAY6" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_calisanlarBILGI">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_calisanlarBILGI">
+              <MappingFragment StoreEntitySet="TBL_calisanlarBILGI">
+                <ScalarProperty Name="PersonelId" ColumnName="PersonelId" />
+                <ScalarProperty Name="PersonelAdSoyad" ColumnName="PersonelAdSoyad" />
+                <ScalarProperty Name="PersonelTelNo" ColumnName="PersonelTelNo" />
+                <ScalarProperty Name="PersonelMail" ColumnName="PersonelMail" />
+                <ScalarProperty Name="MusteriSayisiToplam" ColumnName="MusteriSayisiToplam" />
+                <ScalarProperty Name="OrtalamaPuan" ColumnName="OrtalamaPuan" />
+                <ScalarProperty Name="PersonelDurum" ColumnName="PersonelDurum" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_galeriVERILER">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_galeriVERILER">
+              <MappingFragment StoreEntitySet="TBL_galeriVERILER">
+                <ScalarProperty Name="FotoAciklamaId" ColumnName="FotoAciklamaId" />
+                <ScalarProperty Name="FotoBaslik" ColumnName="FotoBaslik" />
+                <ScalarProperty Name="FotoDetay" ColumnName="FotoDetay" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_hakkimizdaVERILER">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_hakkimizdaVERILER">
+              <MappingFragment StoreEntitySet="TBL_hakkimizdaVERILER">
+                <ScalarProperty Name="VeriId" ColumnName="VeriId" />
+                <ScalarProperty Name="DETAY1" ColumnName="DETAY1" />
+                <ScalarProperty Name="DETAY2" ColumnName="DETAY2" />
+                <ScalarProperty Name="DETAY3" ColumnName="DETAY3" />
+                <ScalarProperty Name="DETAY4" ColumnName="DETAY4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_iletisimMESAJ">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_iletisimMESAJ">
+              <MappingFragment StoreEntitySet="TBL_iletisimMESAJ">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="isim" ColumnName="isim" />
+                <ScalarProperty Name="telNO" ColumnName="telNO" />
+                <ScalarProperty Name="eMail" ColumnName="eMail" />
+                <ScalarProperty Name="konu" ColumnName="konu" />
+                <ScalarProperty Name="mesaj" ColumnName="mesaj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Kategori">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_Kategori">
+              <MappingFragment StoreEntitySet="TBL_Kategori">
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+                <ScalarProperty Name="KategoriFiyat" ColumnName="KategoriFiyat" />
+                <ScalarProperty Name="KategoriDurum" ColumnName="KategoriDurum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Randevu">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_Randevu">
+              <MappingFragment StoreEntitySet="TBL_Randevu">
+                <ScalarProperty Name="RandevuId" ColumnName="RandevuId" />
+                <ScalarProperty Name="MusteriAd" ColumnName="MusteriAd" />
+                <ScalarProperty Name="MusteriSoyad" ColumnName="MusteriSoyad" />
+                <ScalarProperty Name="MusteriTelNo" ColumnName="MusteriTelNo" />
+                <ScalarProperty Name="MusteriMail" ColumnName="MusteriMail" />
+                <ScalarProperty Name="PersonelIdFK" ColumnName="PersonelIdFK" />
+                <ScalarProperty Name="KategoriIdFK" ColumnName="KategoriIdFK" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="SaatIdFK" ColumnName="SaatIdFK" />
+                <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_saatlerKONTROL">
+            <EntityTypeMapping TypeName="ErkekKuaforDBModel.TBL_saatlerKONTROL">
+              <MappingFragment StoreEntitySet="TBL_saatlerKONTROL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="saatler" ColumnName="saatler" />
+                <ScalarProperty Name="SaatDurum" ColumnName="SaatDurum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
